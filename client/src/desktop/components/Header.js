@@ -3,6 +3,7 @@ import { Button, Typography, Avatar, List, ListItemButton, Divider, Popover } fr
 import { red } from '@mui/material/colors';
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import LazyLoading from "./LazyLoading";
 
 const HeaderBox = styled("div") ({
     position: 'fixed', width: '100vw', height: '60px', zIndex: '5',
@@ -31,7 +32,15 @@ export default function Header () {
     return (
         <HeaderBox>
             <LogoBox onClick={()=>{navigate('/')}}>
-                <LogoImg src="/logo.png" alt="Logo Icon" />
+                <LazyLoading
+                bigImg="/logoBig.jpg"
+                previewImg="/логоШАкалы.jpg"
+                boxStyle={
+                    {
+                        height: '40px', margin: '0 10px 5px 0', width: '40px'
+                    }
+                }
+                />
                 <Typography variant="h5">Fix it now</Typography>
             </LogoBox>
             <AuthBox />
